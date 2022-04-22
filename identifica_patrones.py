@@ -1,4 +1,4 @@
-from puspark import SparkConf, SparkContext
+from pyspark import SparkConf, SparkContext
 conf = SparkConf.setMaster("local".setAppName("Miapp1")
 sc = SparkContext(conf = conf)
 lineastxt = sc.textFile("datosejemplo.txt")
