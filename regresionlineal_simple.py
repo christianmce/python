@@ -2,8 +2,7 @@ import numpy as np #Librería numérica
 import matplotlib.pyplot as plt # Para crear gráficos con matplotlib
 from sklearn.linear_model import LinearRegression #Regresión Lineal con scikit-learn
 from sklearn.metrics import mean_squared_error
-import matplotlib.pyplot as plt
-from matplotlib import style
+
 
 def f(x):  # función f(x) = 0.1*x + 1.25 + 0.2*Ruido_Gaussiano
     np.random.seed(42) # para poder reproducirlo
