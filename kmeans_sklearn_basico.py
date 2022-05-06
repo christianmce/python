@@ -1,6 +1,7 @@
 ## Aplicación del modelo K-means usando la biblioteca SKlearn de Python. ##
 ## Author: Mtro. Christian Mauricio Castillo Estrada <UNACH> 2022
 ## Analizar comportamiento de las personas tomando en consideración su edad y número de compras por internet
+## https://christianmce.net/datasets/DatosPersonasCompras.csv
 
 import pandas as pd
 import matplotlib.pyplot as plt
