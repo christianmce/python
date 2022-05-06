@@ -1,4 +1,4 @@
-## Inicialización del Algoritmo K-means  ############################################
+## Inicialización del Algoritmo K-means  ################################################################################
 ## Author: Mtro. Christian Mauricio Castillo Estrada <UNACH> 2022
  
 import pandas as pd
@@ -25,7 +25,7 @@ plt.scatter(df['x1'], df['x2'], color='k')
 colmap = {1: 'r', 2: 'g', 3: 'b'}
 for i in centroids.keys():
     plt.scatter(*centroids[i], color=colmap[i])
-plt.title(u'Los k centroides están inicializados')
+plt.title('Los k centroides están inicializados')
 plt.xlim(0, 80)
 plt.ylim(0, 80)
 plt.show()
@@ -54,7 +54,7 @@ fig = plt.figure(figsize=(5, 5))
 plt.scatter(df['x1'], df['x2'], color=df['color'], alpha=0.5, edgecolor='k')
 for i in centroids.keys():
     plt.scatter(*centroids[i], color=colmap[i])
-plt.title(u'Asignación de los datos al clúster del centroide más cercano')
+plt.title('Asignación de los datos al clúster del centroide más cercano')
 plt.xlim(0, 80)
 plt.ylim(0, 80)
 plt.show()
@@ -78,7 +78,7 @@ ax = plt.axes()
 plt.scatter(df['x1'], df['x2'], color=df['color'], alpha=0.5, edgecolor='k')
 for i in centroids.keys():
     plt.scatter(*centroids[i], color=colmap[i])
-plt.title(u'Actualización de los centroides como la media de los datos del clúster')
+plt.title('Actualización de los centroides como la media de los datos del clúster')
 plt.xlim(0, 80)
 plt.ylim(0, 80)
 for i in old_centroids.keys():
@@ -87,6 +87,21 @@ for i in old_centroids.keys():
     dx = (centroids[i][0] - old_centroids[i][0]) * 0.75
     dy = (centroids[i][1] - old_centroids[i][1]) * 0.75
     ax.arrow(old_x, old_y, dx, dy, head_width=2, head_length=3, fc=colmap[i], ec=colmap[i])
+plt.show()
+
+
+## Repetición de la asignación de las observaciones al centroide más cercano #######################################
+ 
+df = asignacion(df, centroids)
+ 
+# Representación de resultados
+fig = plt.figure(figsize=(5, 5))
+plt.scatter(df['x1'], df['x2'], color=df['color'], alpha=0.5, edgecolor='k')
+for i in centroids.keys():
+    plt.scatter(*centroids[i], color=colmap[i])
+plt.title('Repetición de la asignación de las observaciones al centroide más cercano')
+plt.xlim(0, 80)
+plt.ylim(0, 80)
 plt.show()
 
 
