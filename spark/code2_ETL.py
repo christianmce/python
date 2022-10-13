@@ -11,7 +11,7 @@ df.first() # or df.head(1) or df.show(1)
 def extract(spark: SparkSession, type: str, source: str):
     # Read data from mysql database
     if type=="JDBC":
-       output_df =     spark.read.format("JDBC").options(url='jdbc:mysql://localhost/world',dbtable=source,driver='com.mysql.cj.jdbc.Driver',user='root',password='root').load()
+       output_df = spark.read.format("JDBC").options(url='jdbc:mysql://localhost/world',dbtable=source,driver='com.mysql.cj.jdbc.Driver',user='root',password='root').load()
        return output_df
     if type=="CSV":
     # read data from filesystem
@@ -36,4 +36,16 @@ output.write.format('json').save('filtered.json')
 
 output.coalesce(1).write.format('json').save('filtered.json')
 
+
+# ------------------------------------------------------- EXAMPLE SPARK TRANSFORM DATA -----------------------------------------
+
+def clean_drop_data(df):
+
+    df_dropped = df.drop("dateCrawled","nrOfPictures","lastSeen")
+    df_filtered = df_dropped.where(col("seller") != "gewerblich")
+    df_dropped_seller = df_filtered.drop("seller")
+    df_filtered2 = df_dropped_seller.where(col("offerType") != "Gesuch")
+    df_final = df_filtered2.drop("offerType")
+
+    return df_final
 
