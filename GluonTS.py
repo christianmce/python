@@ -26,3 +26,13 @@ estimator = DeepAREstimator(
 	)
 )
 predictor = estimator.train(ds_datatrain)
+
+
+predict_eval, ts_it = make_evaluation_predictions(
+	dataset = ds_datatrain,
+	predictor = predictor,
+	num_samples = 100,
+)
+
+result_predict = list(predict_eval)
+tss = list(ts_it)
