@@ -23,6 +23,6 @@ estimator = DeepAREstimator(
 	learning_rate=1e-3,
 	hybridize=False,
 	num_batches_per_epoch=100
-)
+	)
 )
 predictor = estimator.train(ds_datatrain)
