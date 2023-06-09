@@ -36,3 +36,15 @@ predict_eval, ts_it = make_evaluation_predictions(
 
 result_predict = list(predict_eval)
 tss = list(ts_it)
+
+
+def show_plot_forecast_results(tss,forecasts):
+	for target, forecast in islice(zip(tss,forecasts),1):
+		ax = target[-100:].plot(figsize=(12,5), linewidth=2)
+		forecast.plot(color='g',prediction_intervals=[50.0,90.0])
+		plt.grid(which='both')
+		plt.legend(["Observations","Median prediction",
+		"90% Confidence interval","50% Confidence interval"])
+		plt.show()
+
+show_plot_forecast_results(tss,result_predict)
