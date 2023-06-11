@@ -1,4 +1,8 @@
 
+oilmetadata = {
+	'prediction_months': 12,
+	'freq': '1M'
+}
 
 url = "C:/Path/SENER_ProduccionPetroleoCrudoEF.csv"
 
